@@ -1,0 +1,52 @@
+gem:
+  # Add your `gem` command parameters here:
+  #
+  exclude:
+  # Deployment
+  - bcrypt_pbkdf
+  - ed25519
+  - kamal
+  - net-scp
+  - net-sftp
+  - net-ssh
+  - sshkit
+  - thruster
+  # Development utilities
+  - debug
+  - listen
+  - packwerk
+  - packwerk-extensions
+  - rdoc
+  - web-console
+  - yard-sorbet
+  # Linting / code quality
+  - annotaterb
+  - better_html
+  - brakeman
+  - bundler-audit
+  - language_server-protocol
+  - lint_roller
+  - ruby-lsp
+  - ruby-progressbar
+  - rubocop
+  - rubocop-ast
+  - rubocop-capybara
+  - rubocop-minitest
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rails-omakase
+  - rubocop-sorbet
+  # Testing
+  - imagen
+  - selenium-webdriver
+  # Other
+  - net-imap
+  - mail
+  # doc: true
+  # workers: 5
+dsl:
+  # Add your `dsl` command parameters here:
+  #
+  # exclude:
+  # - SomeGeneratorName
+  # workers: 5

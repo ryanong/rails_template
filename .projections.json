@@ -1,0 +1,8 @@
+{
+    "packs/**/app/**/*.rb": {
+        "alternate": "packs/{dirname}/test/{dirname}/{basename}_test.rb"
+    },
+    "app/**/*.rb": {
+        "alternate": "test/{dirname}/{basename}_test.rb"
+    }
+}

@@ -1,0 +1,76 @@
+schema: spec-driven
+
+context: |
+  ## Stack
+  - Ruby 4.0.2, Rails 8.1
+  - SQLite (via `storage/` directory)
+  - Background Jobs: Solid Queue (recurring jobs via `config/recurring.yml`)
+  - Cache: Solid Cache
+  - Views: View Components
+  - CSS: Tailwind CSS (mobile-first)
+  - Interactivity: Hotwire (Turbo + Stimulus)
+  - Type Checking: Sorbet (`typed: strict` where possible); RBI files in `sorbet/`, generated via `bin/tapioca dsl`
+  - File Storage: Active Storage
+  - Authorization: Action Policy (policy objects per domain model)
+
+  ## Architecture
+  - **Service-layer boundary** — controllers and views interact exclusively through service objects. Models are never accessed directly from the web layer.
+  - **Policy-enforced authorization** — all access control is enforced by Action Policy policy objects. Services call `authorize!` at the top of every call path; controllers call `authorized_scope` to build queries.
+  - **Skinny controllers** — controllers handle HTTP concerns only: params, session, redirects, status codes. No business logic lives in a controller.
+  - **Services receive domain objects only** — services accept model instances and scalar values. They never receive `session`, `cookies`, `params`, `request`, or `response`.
+  - **Verb-named service objects** — POROs named as verbs (`CreateProject`, `CancelSubscription`). Each includes the `Service` concern which auto-generates a `::Job` for async execution.
+  - **Service::Result contract** — services return `Service::Result` for both success and validation failure. `result.ok?` indicates success; `result.value` carries the record. Authorization failures raise `ActionPolicy::Unauthorized`, not a result.
+  - **Sorbet everywhere** — every Ruby file carries a `# typed:` sigil.
+  - **Packwerk package boundaries** — domain code lives in `packs/` packages forming a strict acyclic dependency graph. Document each pack and its dependencies here as they are created.
+
+  ## Project Structure
+  - Views: `app/views/` as ViewComponents classes; components in `app/components/`
+  - Controllers render ViewComponents directly: `render Views::Projects::New.new(project: @project)`
+  - Service objects: `app/services/` (or `packs/<domain>/app/services/`)
+  - Policy objects: `app/policies/` (or `packs/<domain>/app/policies/`), one per model
+  - `db/schema.rb` — current database schema
+
+  ## Key Conventions
+  - Tailwind utility classes, mobile-first
+  - Rubocop Rails Omakase style
+  - `frozen_string_literal: true` in all Ruby files
+  - Sorbet type signatures (`typed: strict` when possible); run `srb tc` to verify
+  - Minitest for testing (`test/` directory); run with `bin/rails test`
+  - Pivotal Labs coding style: small methods, small classes, intention-revealing names, tell don't ask, composition over inheritance, skinny controllers, service objects for orchestration
+
+  ## Frontend Design Philosophy
+  _TODO: describe this product's UI contexts and design language._
+
+  ## Task Execution
+  - Follow TDD: write a failing test first, then implement to make it pass, then refactor if needed
+
+rules:
+  proposal:
+    - Identify which Packwerk package(s) the feature belongs to and confirm no dependency cycle is introduced
+    - Include the specific View Components, service objects, and policy objects that will be created or modified
+    - Specify where authorization lives (policy class and method name, named after the calling service)
+    - Specify Stimulus controllers and Turbo interactions needed
+    - Note any database migrations required; include encryption/blind-index needs for any PII columns
+    - Describe the service object inputs, result contract
+    - Include a "Non-goals" section to keep scope tight
+    - Consider mobile-first — describe the mobile experience before desktop
+    - Not use strings for user-facing text, including errors; instead, use `I18n.t` with a key in `config/locales/en.yml`
+  tasks:
+    - Each task should be completable independently with passing tests
+    - Order tasks: data layer (models, migrations) first, then service objects and policies, then controllers, then views
+    - Include a test task for each implementation task — no code without coverage
+    - Keep tasks small enough that each touches at most 3–4 files
+    - Specify the exact file paths to create or modify (e.g., `app/services/create_project.rb`)
+    - Service tasks must include the `authorize!` call and confirm the corresponding policy method exists
+    - Include Sorbet type checking (`srb tc`) as a verification step after each service or model task
+    - Run `bin/tapioca dsl` after adding new service objects or models to keep RBI files current
+    - Include a final task to run `bin/ci` for full suite validation
+  specs:
+    - Describe user-facing behavior, not implementation details
+    - Identify the persona for each scenario
+    - Include mobile and desktop scenarios separately when the experience differs
+    - Specify edge cases and error states explicitly
+    - Reference existing patterns in the codebase when extending functionality
+    - Update files in the `test/` folder with new assertions or tests for the feature being implemented
+    - Prefer system tests for happy path user flows; controller tests for edge cases and error states
+    - Tag tests with `# @spec <spec-folder>` to link back to the relevant OpenSpec spec

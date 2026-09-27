@@ -1,0 +1,23 @@
+# Omakase Ruby styling for Rails
+inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+
+plugins:
+  - rubocop-capybara
+  - rubocop-minitest
+  - rubocop-sorbet
+
+AllCops:
+  NewCops: enable
+
+
+Minitest/AssertPredicate:
+  Enabled: false
+Minitest/EmptyLineBeforeAssertionMethods:
+  Enabled: false
+Minitest/MultipleAssertions:
+  Enabled: false
+
+Sorbet/ConstantsFromStrings:
+  Enabled: true
+  Exclude:
+    - "sorbet/tapioca/**/*"

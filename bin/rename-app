@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Renames this template to a new application.
+#
+#   bin/rename-app MyNewApp
+#
+# Replaces RailsTemplate / rails_template / "Rails Template" across tracked text files.
+
+require "fileutils"
+require "active_support/core_ext/string/inflections"
+
+new_name = ARGV.first
+abort "Usage: bin/rename-app MyNewApp" if new_name.nil? || new_name !~ /\A[A-Z][A-Za-z0-9]*\z/
+
+replacements = {
+  "RailsTemplate" => new_name,
+  "rails_template" => new_name.underscore,
+  "Rails Template" => new_name.titleize
+}
+
+root = File.expand_path("..", __dir__)
+Dir.chdir(root)
+
+files = `git ls-files`.split("\n").reject { |path| path.start_with?("sorbet/rbi/gems/", "bin/rename-app") }
+files.each do |path|
+  next unless File.file?(path) && !File.symlink?(path)
+
+  content = File.binread(path)
+  next unless content.valid_encoding? && replacements.keys.any? { |from| content.include?(from) }
+
+  replacements.each { |from, to| content = content.gsub(from, to) }
+  File.binwrite(path, content)
+  puts "  updated #{path}"
+end
+
+puts <<~NEXT
+
+  Renamed to #{new_name}. Next steps:
+    bin/rails credentials:edit --environment production   # creates config/credentials/production.key
+    bin/setup --skip-server
+    bin/ci
+NEXT

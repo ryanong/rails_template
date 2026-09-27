@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* Explicitly scan pack views, components, and JS for Tailwind classes */
+@source "../../views";
+@source "../../components";
+@source "../../javascript";
+@source "../../../packs/*/app/views";
+@source "../../../packs/*/app/components";
+@source "../../../packs/*/app/javascript";
+
+/*
+ * Pack-specific stylesheets: when a pack needs custom CSS beyond Tailwind
+ * utilities, add its stylesheet here following this convention:
+ *
+ *   @import "../../../packs/<pack_name>/app/assets/tailwind/<pack_name>.css";
+ */

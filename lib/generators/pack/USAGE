@@ -1,0 +1,10 @@
+Description:
+    Explain the generator
+
+Example:
+    bin/rails generate pack Thing
+
+    This will create:
+        packs/thing/
+        packs/thing/package.yml
+        packs/lib/thing_engine.rb
