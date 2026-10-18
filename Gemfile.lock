@@ -140,6 +140,10 @@ GEM
       code_teams (~> 1.0)
       packs-specification
       sorbet-runtime (>= 0.6.12763)
+    code_ownership (2.2.0-x86_64-linux)
+      code_teams (~> 1.0)
+      packs-specification
+      sorbet-runtime (>= 0.6.12763)
     code_teams (1.3.1)
       sorbet-runtime
     concurrent-ruby (1.3.8)
@@ -179,6 +183,7 @@ GEM
       concurrent-ruby (~> 1.1)
       websocket-driver (~> 0.7)
     ffi (1.17.4-arm64-darwin)
+    ffi (1.17.4-x86_64-linux-gnu)
     fugit (1.14.0)
       et-orbi (~> 1.4)
       raabro (~> 1.4)
@@ -274,6 +279,8 @@ GEM
     netrc (0.11.0)
     nio4r (2.7.5)
     nokogiri (1.19.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.19.4-x86_64-linux-gnu)
       racc (~> 1.4)
     ostruct (0.6.3)
     packs (0.3.0)
@@ -440,6 +447,7 @@ GEM
     ruby-next-core (1.2.1)
     ruby-progressbar (1.13.0)
     rubydex (0.4.1-arm64-darwin)
+    rubydex (0.4.1-x86_64-linux)
     rubyzip (3.7.0)
     rugged (1.9.6)
     securerandom (0.4.1)
@@ -469,13 +477,14 @@ GEM
       fugit (~> 1.11)
       railties (>= 7.1)
       thor (>= 1.3.1)
-    sorbet (0.6.13508)
-      sorbet-static (= 0.6.13508)
-    sorbet-runtime (0.6.13508)
-    sorbet-static (0.6.13508-universal-darwin)
-    sorbet-static-and-runtime (0.6.13508)
-      sorbet (= 0.6.13508)
-      sorbet-runtime (= 0.6.13508)
+    sorbet (0.6.13558)
+      sorbet-static (= 0.6.13558)
+    sorbet-runtime (0.6.13558)
+    sorbet-static (0.6.13558-universal-darwin)
+    sorbet-static (0.6.13558-x86_64-linux)
+    sorbet-static-and-runtime (0.6.13558)
+      sorbet (= 0.6.13558)
+      sorbet-runtime (= 0.6.13558)
     spoom (1.8.9)
       erubi (>= 1.10.0)
       prism (>= 0.28.0)
@@ -486,6 +495,7 @@ GEM
       thor (>= 0.19.2)
     spy (1.0.5)
     sqlite3 (2.9.6-arm64-darwin)
+    sqlite3 (2.9.6-x86_64-linux-gnu)
     sshkit (1.25.1)
       base64
       logger
@@ -503,6 +513,7 @@ GEM
       railties (>= 7.0.0)
       tailwindcss-ruby (~> 4.0)
     tailwindcss-ruby (4.3.3-arm64-darwin)
+    tailwindcss-ruby (4.3.3-x86_64-linux-gnu)
     tapioca (0.20.0)
       benchmark
       bundler (>= 2.2.25)
@@ -517,6 +528,7 @@ GEM
       tsort
     thor (1.5.0)
     thruster (0.1.26-arm64-darwin)
+    thruster (0.1.26-x86_64-linux)
     timeout (0.6.1)
     tsort (0.2.0)
     tty-color (0.6.0)
@@ -573,6 +585,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-23
+  x86_64-linux
 
 DEPENDENCIES
   action_policy
@@ -664,6 +677,7 @@ CHECKSUMS
   capybara-experience (0.4.0) sha256=d23a88afc4614550f3945ef7013726e062e34886eacf27f806703fcb9aa2afd1
   cgi (0.5.2) sha256=61ca30298171190fd4fa0d8018e57ada456eae9b7a2b78526debf7f0a0e6f8bb
   code_ownership (2.2.0-arm64-darwin) sha256=ba2db7b1ce513df5a65262f75afe620e0a41bf225de9002e715525ca0847c12a
+  code_ownership (2.2.0-x86_64-linux) sha256=b9cc91ef52efe74d564657e7aaf9b502191b29f8731e746d675f8445d8291cea
   code_teams (1.3.1) sha256=40a4ed76c3819fdd57f7d9e26b99a0310f5d898a0fd4e94cd7d0dd1f102d5131
   concurrent-ruby (1.3.8) sha256=b2f1be836e968ccc78ccfce277ea79c72a88633f22306782c16ff23fb415d1e1
   connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
@@ -684,6 +698,7 @@ CHECKSUMS
   faraday-net_http (3.4.4) sha256=0e78af151747ed1b00f33e25973b4bc220d7f16c00c39676817c8b12331eb588
   ferrum (0.18.0) sha256=4cb8be16e352fc1d75f087e9214b34ec1b93ba932410c730a4724909ca89d7c6
   ffi (1.17.4-arm64-darwin) sha256=19071aaf1419251b0a46852abf960e77330a3b334d13a4ab51d58b31a937001b
+  ffi (1.17.4-x86_64-linux-gnu) sha256=9d3db14c2eae074b382fa9c083fe95aec6e0a1451da249eab096c34002bc752d
   fugit (1.14.0) sha256=e311a9cc85a54bb67649df45060e721282a1e2c8ebad40e41874a3a7d576f37e
   globalid (1.4.0) sha256=037f12fbf1d9d7a014d501c2d5c77356fd4ddd96d7a7991d6700bba96706f427
   hashdiff (1.2.1) sha256=9c079dbc513dfc8833ab59c0c2d8f230fa28499cc5efb4b8dd276cf931457cd1
@@ -722,6 +737,7 @@ CHECKSUMS
   netrc (0.11.0) sha256=de1ce33da8c99ab1d97871726cba75151113f117146becbe45aa85cb3dabee3f
   nio4r (2.7.5) sha256=6c90168e48fb5f8e768419c93abb94ba2b892a1d0602cb06eef16d8b7df1dca1
   nokogiri (1.19.4-arm64-darwin) sha256=a46db9853286e6597b36ebc6953817d15acf3a299583eb3f89fdc6f91dd63527
+  nokogiri (1.19.4-x86_64-linux-gnu) sha256=379fae440b28915e3f19d752ce2dcf8465ed2b2fbefd2a7ca0dd497bc981a06a
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   packs (0.3.0) sha256=ae79f14aae007e3fcb4bfdba1c0587ad54586830f6b60d948dc3b27a9f26b8d0
   packs-specification (0.0.11) sha256=2b6ba6e0dd79af599796d4c8203234ce9a626bca42cb36fcceeac3d95731c86d
@@ -774,6 +790,7 @@ CHECKSUMS
   ruby-next-core (1.2.1) sha256=ddba3e986e127143299a26bde8bdbeedd4bc738a1a765e499f9634f361551f79
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
   rubydex (0.4.1-arm64-darwin) sha256=d23720253876d88fb98954e5d3a1ef9696a269697acf50e3ab53cdfbb2b66b96
+  rubydex (0.4.1-x86_64-linux) sha256=4e2c8398c9fc585485b54edd28f5ecf76b5a02255e177b6f8402e9d2afffd51b
   rubyzip (3.7.0) sha256=65c19294da75297a939006f3516deacc33185fbd721ff1954f7a231db6d3e121
   rugged (1.9.6) sha256=c6e45250e51cdf19f6130d050e280ba8d6af475d4c76580f91377a59fe23d3c7
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
@@ -785,13 +802,15 @@ CHECKSUMS
   solid_cable (4.1.0) sha256=828e3d509207b82b4f05f4e9c85f696994710679b52d511aa7f97ebd212d3226
   solid_cache (1.0.10) sha256=bc05a2fb3ac78a6f43cbb5946679cf9db67dd30d22939ededc385cb93e120d41
   solid_queue (1.7.0) sha256=6566b70b801d1c317c81bba7bcdd5677c019afac584a30374b4164002ca356d3
-  sorbet (0.6.13508) sha256=de67c75424731d39ac529639ff6849c3fe33d91c94608765d912d35efa5941a2
-  sorbet-runtime (0.6.13508) sha256=011ee266adead459077ebc0058d36aeb75d6c90968db8524916050ce3c62e526
-  sorbet-static (0.6.13508-universal-darwin) sha256=65280392d193ca85828b13d07bb8eb90f41ad57f8d9bc79c5edcd078aa7dc308
-  sorbet-static-and-runtime (0.6.13508) sha256=874d9fe5d98eebddd322629ee3d27021a6da32594edfa170295c0b4bcd285d66
+  sorbet (0.6.13558) sha256=72f911331d4e38759da6982f768e123b656a2ffdef2027eb85e0ae935bf182c6
+  sorbet-runtime (0.6.13558) sha256=c11bcc160a56a422ff65325f2b1ea898d0f1697914edaa1459b0fc771e839386
+  sorbet-static (0.6.13558-universal-darwin) sha256=0ae05c789d0af3002c66f8129092dd22c4803560c53150a581cbbe6dcde51a66
+  sorbet-static (0.6.13558-x86_64-linux) sha256=2cc5555d959d58bc927eab646a13e75406d27c723668f752041394339127d69f
+  sorbet-static-and-runtime (0.6.13558) sha256=d9be9e4ce45c4f8bba1a409f3f0242973f4b120f8c864367b7e62ba3581ad58d
   spoom (1.8.9) sha256=4f81c6b6c94665de0f548323197667e92fc6bcd888299030019354db79f61a78
   spy (1.0.5) sha256=babd137834e09fb5e58b8d8bc777649052bc376d9618a4cb34a29e8091aa553c
   sqlite3 (2.9.6-arm64-darwin) sha256=849b5d7f795e60fe25076d62c72dd722beb45b3850b516ad978d60ee848ec15b
+  sqlite3 (2.9.6-x86_64-linux-gnu) sha256=613188ce02f614126ddbc38c5e217ccffd6306d0dcd9adca9764547aa890a634
   sshkit (1.25.1) sha256=be3f10b9d6eb0b44d5eaba3f7cbe41bc6bb894bce4339688ac20124391455b78
   ssrf_filter (1.6.0) sha256=78d15bc26d0385c931f46f12a9c1cbb90e6556bd96b95f25e5a5f786c8dcf999
   stimulus-rails (1.3.4) sha256=765676ffa1f33af64ce026d26b48e8ffb2e0b94e0f50e9119e11d6107d67cb06
@@ -799,9 +818,11 @@ CHECKSUMS
   tailwind_merge (1.5.6) sha256=bf9b492446af3caafb4a4976465153eb800f6b4df2538974dee0e4acc5457530
   tailwindcss-rails (4.6.0) sha256=d99512867173d55c5ef8890427682299d8539f550cec1408b3d8667a538bd365
   tailwindcss-ruby (4.3.3-arm64-darwin) sha256=776c51fc734aac64bde0c253eadd2ed2e610b2ba0d8e760501fe7cbec55fd6cf
+  tailwindcss-ruby (4.3.3-x86_64-linux-gnu) sha256=2337017ff8b02698480eae1e9637cf01faa0e4824db89d067a13c5a5ee38c9b2
   tapioca (0.20.0) sha256=b375ed7bf51d2c86c09543eafedd0de85513634187c0f7a062615af8bb9347a0
   thor (1.5.0) sha256=e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73
   thruster (0.1.26-arm64-darwin) sha256=40676164c433abf31313422305d9e9e9210cf941b1befad88e2428b3b8dcc36c
+  thruster (0.1.26-x86_64-linux) sha256=3117a6ee430663f845a0457699fe9a05232dcc6c396e2cc83504de5a223c60e8
   timeout (0.6.1) sha256=78f57368a7e7bbadec56971f78a3f5ecbcfb59b7fcbb0a3ed6ddc08a5094accb
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   tty-color (0.6.0) sha256=6f9c37ca3a4e2367fb2e6d09722762647d6f455c111f05b59f35730eeb24332a
